@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { useState, useEffect } from "react";
+import { UsMap } from "./components/UsMap/UsMap";
+import { Navbar } from "./components/Navbar/Navbar";
+import { PredictionArea } from "./components/PredictionArea/PredictionArea";
 
 function App() {
+  const [data, setData] = useState([{}]);
+
+  /*
+  useEffect(() => {
+    fetch("/members")
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+        console.log(data, "hi");
+      });
+  }, []);
+  */
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <UsMap />
+      <PredictionArea />
     </div>
   );
 }
